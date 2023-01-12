@@ -1,0 +1,25 @@
+import pe
+
+rule test_yara_thm_task14 {
+
+	meta:
+		description = "Detects ComplexCalculator from THM MAL Malware Introductory"
+		author = "Arktic<*-*>"
+		reference = "https://tryhackme.com/room/malmalintroductory
+		filetype = "Win32 EXE"
+		date = "1/12/2023"
+		md5 = "F5BD8E6DC6782ED4DFA62B8215BDC429"
+		score = 2/71
+		
+
+	strings:
+	@a = {43 6F 6D 70 6C 65 78 43 61 6C 63 75 6C 61 74 6F 72 2E 70 64 62}
+	@a1 = "ComplexCalculator.pdb"
+	
+	conditions:
+		uint16(0) == 0x5A4D
+		and pe.imports["TerminateProcess", "GetCurrentProcessId", "GetCurrentThreadId"]
+		and filesize < 62000
+		and 1 of ($a*)
+
+ }
