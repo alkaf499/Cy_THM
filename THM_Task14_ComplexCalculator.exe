@@ -5,7 +5,7 @@ rule test_yara_thm_task14 {
 	meta:
 		description = "Detects ComplexCalculator from THM MAL Malware Introductory"
 		author = "Arktic<*-*>"
-		reference = "https://tryhackme.com/room/malmalintroductory
+		reference = "https://www.virustotal.com/gui/file/0cab8c9814b28b2bd15bc446bed045c43498c4b4c54eac62f534c29fc7f7eaab"
 		filetype = "Win32 EXE"
 		date = "1/12/2023"
 		md5 = "F5BD8E6DC6782ED4DFA62B8215BDC429"
