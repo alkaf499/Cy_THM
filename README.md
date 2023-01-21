@@ -1,3 +1,3 @@
-# Yara_Tests
+# Cy_THM
 
-Exploring YARA language and trying to write rules based, for now, on the tasks and samples provided in TryHackMe's rooms.
+Scripts, YARA rules, Snort rules...and whatever comes in the THM rooms.
