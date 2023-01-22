@@ -1,0 +1,9 @@
+#Tries on FTP with bad or no password, if we include another conntent:"User" we can select the malicious tries for a specific user.
+alert tcp any 21 <> any any (msg:"FTP bad password or no password"; content:"331 Password";sid:1000007;rev:1) 
+
+#Searches for any PNG OR GIF files types.
+alert ip any any <> any any (msg:"PNG bad"; content:"GIF|PNG"; sid: 1000006;rev:1;) Searches for any PNG OR GIF files types.
+
+#Searches for torrent files
+alert tcp any any <> any any (msg:"Torrent_Content_Type_Found"; content:".torrent"; sid:1000006;rev:1)
+
