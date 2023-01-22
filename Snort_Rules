@@ -7,3 +7,18 @@ alert ip any any <> any any (msg:"PNG bad"; content:"GIF|PNG"; sid: 1000006;rev:
 #Searches for torrent files
 alert tcp any any <> any any (msg:"Torrent_Content_Type_Found"; content:".torrent"; sid:1000006;rev:1)
 
+///
+#BitTorrent uses TCP 6881-6999, it also uses HTTP ports for communication.
+#The rule below detects when a user is downloading the Windows version.
+
+Alert tcp $HOME_NET any -> any $HTTP_PORTS (msg:Bit Torrent Client 
+download"; uricontent:"BitTorrent"; uricontent:".exe"; classtype: 
+bad-unknown; sid:10559; rev:1;)
+
+#The rule below detects when an installed client is communicating with another BitTorrent server.
+
+Alert tcp $HOME_NET any -> $EXTERNAL_NET any (msg:"Bit Torrent client 
+usage"; content:"|00 00 40 09 07 00 00 00|"; offset:0; depth:4; 
+classtype: policy-violation; reference:url,
+www.bleedingsnort.com/bleeding.rules; sid:10560; rev:1;)
+
