@@ -1,0 +1,25 @@
+NMAP scans
+
+tcp.flags == 2 // Only SYN flag
+tcp.flags.syn == 1 // SYN flag is set. The rest of the bits are not important
+
+tcp.flags == 16 // Only ACK flag
+tcp.flags.ack == 1 // ACK flag is set. The rest of the bits are not important
+
+tcp.flags == 18 // Only SYN, ACK flags
+(tcp.flags.syn == 1) and (tcp.flags.ack == 1) // SYN and ACK are set. The rest of the bits are not important
+
+tcp.flags == 4 // Only RST flag
+tcp.flags.reset == 1 // RST flag is set. The rest of the bits are not important
+
+tcp.flags == 20 // Only RST, ACK flags
+(tcp.flags.reset == 1) and (tcp.flags.ack == 1) // RST and ACK are set. The rest of the bits are not important
+
+tcp.flags == 1 // Only FIN flag
+tcp.flags.fin == 1 // FIN flag is set. The rest of the bits are not important
+
+tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size > 1024 // TCP Connect scan pattern
+tcp.flags.syn==1 and tcp.flags.ack==0 and tcp.window_size <= 1024 // TCP SYN scan
+
+icmp.type==3 and icmp.code==3 //  UDP scan pattern
+
