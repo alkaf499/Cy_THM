@@ -1,0 +1,10 @@
+"DNS" options for grabbing the low-hanging fruits:
+
++ Query length.
++ Anomalous and non-regular names in DNS addresses.
++ Long DNS addresses with encoded subdomain addresses.
++ Known patterns like dnscat and dns2tcp.
++ Statistical analysis like the anomalous volume of DNS requests for a particular target.
+
+- dns contains dnscat
+- dns.qry.name.len > 15 and !mdns
