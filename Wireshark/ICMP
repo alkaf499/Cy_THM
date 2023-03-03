@@ -1,0 +1,7 @@
+"ICMP" options for grabbing the low-hanging fruits:
+
++ Packet length.
++ ICMP destination addresses.
++ Encapsulated protocol signs in ICMP payload.
+
+- data.len > 64 and icmp
